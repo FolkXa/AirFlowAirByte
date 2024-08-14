@@ -14,7 +14,7 @@ This folder contains the code to setup Airflow with existing Airbyte and DBT.
 
 1. Clone repository 
 `git clone https://github.com/FolkXa/AirFlowAirByte.git`
-2. Configurate `.env` file by `cp .env.example .env`
+2. Configurate `.env` file by `cp .env.example .env` and edit:
 
     AIRFLOW_AIRBYTE_CONN='...airflow_connection_in_airflow_web...'  (It in Airflow web at admin -> connections)
 
