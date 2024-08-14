@@ -1,6 +1,6 @@
 # Airflow setup with Airbyte and DBT
 
-This folder contains the code to setup Airflow with Airbyte and DBT.
+This folder contains the code to setup Airflow with existing Airbyte and DBT.
 
 ## Prerequisites
 
