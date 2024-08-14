@@ -14,7 +14,7 @@ from airflow.providers.airbyte.hooks.airbyte import AirbyteHook
 
 
 AIRFLOW_AIRBYTE_CONN_ID = os.getenv("AIRFLOW_AIRBYTE_CONN") # The name of the Airflow connection to get connection information for Airbyte.
-AIRBYTE_CONNECTION_ID = os.getenv("AIRBYTE_CONN_ID") # the Airbyte ConnectionId UUID between a source and destination.
+AIRBYTE_CONNECTION_ID = os.getenv('AIRBYTE_CONN_ID') # the Airbyte ConnectionId UUID between a source and destination.
 DBT_DIR = "/opt/airflow/dbt_project"
 
 default_args = {
@@ -74,5 +74,5 @@ with DAG(
    )
 
    start_pipeline_task >> airbyte_precheck_task >> trigger_airbyte_sync_task \
-    >> [run_dbt_check_task] \
+    >> [run_dbt_check_task, wait_for_sync_completion_task] \
         >> run_dbt_model_task >> end_pipeline_task
